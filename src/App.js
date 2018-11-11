@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// in src/App.js
+import React from 'react';
+import { Admin, Resource, ListGuesser } from 'react-admin';
+import dataProvider from './dataProvider';
+import TagsList from './components/TagsList'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Admin dataProvider={dataProvider}>
+    <Resource name="tags" list={TagsList} />
+    <Resource name="categories" list={ListGuesser} />
+
+  </Admin>
+  )
+;
 
 export default App;
+
